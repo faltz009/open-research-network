@@ -1442,3 +1442,70 @@ body.has-ribbon.stack-triptych main {
     font-size: 19px;
   }
 }
+
+/* ─── Project placeholder ─────────────────────────────── */
+
+.project-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(180deg, #f9f8f5, #f0ede6);
+  border-radius: 20px;
+  border: 1px solid rgba(210, 210, 210, 0.95);
+  box-shadow:
+    0 22px 44px rgba(17, 24, 39, 0.08),
+    0 2px 0 rgba(255,255,255,0.82) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-num {
+  font-size: clamp(4em, 10vw, 7em);
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.07);
+  font-family: 'EB Garamond', Georgia, serif;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ─── Endorse ─────────────────────────────────────────── */
+
+.endorse-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 1.8em;
+}
+
+.endorse-btn {
+  appearance: none;
+  border: 1px solid #1a1a1a;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 999px;
+  padding: 11px 28px;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.endorse-btn:hover:not(:disabled) {
+  background: #333;
+  border-color: #333;
+}
+
+.endorse-btn:disabled {
+  opacity: 0.52;
+  cursor: default;
+}
+
+.endorse-count {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: 'Courier New', Courier, monospace;
+}

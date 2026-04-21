@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Research Network</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="has-ribbon">
+
+<div id="ribbon-bg"></div>
+
+<div id="site-nav-root"></div>
+<script src="nav.js"></script>
+
+<main>
+  <div class="tag">Research Projects</div>
+  <h1>Open Research Network</h1>
+
+  <p class="supporting-intro">
+    Cases and methods for understanding when good people are being sabotaged
+    and when people with power are suppressing legitimate criticism.
+    Each project is open for public endorsement.
+  </p>
+
+  <section class="supporting-deck" id="supporting-deck" aria-label="Research projects">
+    <div class="supporting-scene">
+      <div class="supporting-text">
+        <div class="supporting-kicker-row">
+          <div class="tag" id="project-tag">Project 01</div>
+          <div class="supporting-counter" id="project-counter">1 / 4</div>
+        </div>
+
+        <h2 id="project-title">Loading</h2>
+        <p class="supporting-authors" id="project-lead"></p>
+
+        <p class="supporting-abstract" id="project-abstract"></p>
+
+        <div class="supporting-rule"></div>
+
+        <div class="supporting-relation-head">Why It Matters</div>
+        <p class="supporting-relation-copy" id="project-relation"></p>
+
+        <div class="endorse-row">
+          <button class="endorse-btn" id="endorse-btn" type="button">Endorse</button>
+          <span class="endorse-count" id="endorse-count"></span>
+        </div>
+      </div>
+
+      <div class="supporting-visual">
+        <button class="slide-arrow slide-arrow-prev" id="project-prev" type="button" aria-label="Previous project">&#8592;</button>
+        <div class="project-placeholder">
+          <span class="placeholder-num" id="placeholder-num">01</span>
+        </div>
+        <button class="slide-arrow slide-arrow-next" id="project-next" type="button" aria-label="Next project">&#8594;</button>
+        <div class="supporting-dots" id="project-dots" aria-label="Project navigation"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="ori-badge">
+  <div class="ori-badge-ring"><canvas id="ori-canvas"></canvas></div>
+  <span class="ori-badge-label">Open Research Network</span>
+</div>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+<script defer src="ribbon.js"></script>
+<script defer src="shatter.js"></script>
+<script defer src="projects.js"></script>
+</body>
+</html>
