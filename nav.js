@@ -8,6 +8,8 @@
     </summary>
     <div class="nav-mobile-menu">
       <a href="index.html">Projects</a>
+      <a href="field.html">Field</a>
+      <a href="draw.html">Draw</a>
       <a href="about.html">About</a>
     </div>
   </details>
@@ -15,6 +17,10 @@
     <a class="nav-home" href="index.html">Open Research Network</a>
   </div>
   <div class="nav-right">
+    <a href="field.html">Field</a>
+    <span class="nav-dot">·</span>
+    <a href="draw.html">Draw</a>
+    <span class="nav-dot">·</span>
     <a href="about.html">About</a>
   </div>
 </nav>`;

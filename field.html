@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Research Network — Field</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { background: #fff; }
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 3rem 1.5rem;
+    }
+    .hero h1 { font-size: 1.8rem; margin: 0 0 0.75rem; }
+    .hero p  { font-size: 0.88em; color: #444; line-height: 1.7; margin: 0 0 0.65rem; max-width: 720px; }
+    .wrap {
+      display: grid;
+      grid-template-columns: minmax(320px, 540px) minmax(280px, 440px);
+      gap: 2rem;
+      align-items: start;
+      padding: 0 3rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    #field-canvas {
+      width: 520px;
+      height: 520px;
+      max-width: 100%;
+      display: block;
+      background: #f8f8f8;
+      border-radius: 4px;
+    }
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+    .btn {
+      padding: 6px 16px;
+      border: 1px solid #cfcfcf;
+      background: white;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.84rem;
+    }
+    .btn.active,
+    .btn:hover {
+      color: white;
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    .resolution {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      margin: 0.75rem auto 0;
+      max-width: 430px;
+      font-size: 0.78rem;
+      color: #777;
+    }
+    .resolution input {
+      width: 100%;
+      accent-color: #1a1a1a;
+    }
+    .panel h1 { font-size: 1.45rem; margin: 0 0 0.5rem; }
+    .panel p { color: #444; font-size: 0.94rem; line-height: 1.55; }
+    .readout {
+      margin-top: 1rem;
+      padding: 0.85rem;
+      background: #f4f4f4;
+      border-left: 2px solid #1a1a1a;
+      font-family: monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      color: #222;
+    }
+    .freq-label {
+      margin: 1rem 0 0.35rem;
+      font-size: 0.72rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .note {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      color: #888 !important;
+      font-size: 0.82rem !important;
+    }
+    @media (max-width: 820px) {
+      .wrap { grid-template-columns: 1fr; padding: 1rem; }
+      #field-canvas { width: 100%; height: 360px; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav-root"></div>
+<script src="nav.js"></script>
+
+<div class="hero">
+  <h1>Shape Field</h1>
+  <p>This page shows a field changing shape when it receives a compact signal. The signal is not a picture of every dot; it is the rule for making the shape, so the same rule can be drawn with more or less detail by moving the resolution sliders.</p>
+  <p>The useful examples are biological: a cell, a neuron, a folding sheet of tissue. Static signals unfold into 3D space; moving signals add a time axis, so the same form becomes a living sequence of states. That is why this matters as a control language for shapes: send the rule into a system that can read it, and the system knows what form to take.</p>
+</div>
+
+<main class="wrap">
+  <section>
+    <canvas id="field-canvas"></canvas>
+    <div class="controls">
+      <button class="btn active" data-shape="sphere">Sphere</button>
+      <button class="btn" data-shape="tetra">Tetrahedron</button>
+      <button class="btn" data-shape="cube">Cube</button>
+      <button class="btn" data-shape="cell">Cell</button>
+      <button class="btn" data-shape="neuron">Neuron</button>
+      <button class="btn" data-shape="tissue">Tissue Fold</button>
+      <button class="btn" data-shape="cilia">Cilia Wave</button>
+    </div>
+    <div class="resolution">
+      <span>edge</span>
+      <input id="edge-resolution" type="range" min="4" max="48" value="20" />
+      <span id="edge-resolution-label">20</span>
+      <span>surface</span>
+      <input id="face-resolution" type="range" min="6" max="32" value="16" />
+      <span id="face-resolution-label">16</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h1 id="shape-title">Sphere</h1>
+    <p id="shape-desc"></p>
+    <div id="readout" class="readout">loading...</div>
+  </section>
+</main>
+
+<script src="field.js"></script>
+</body>
+</html>
