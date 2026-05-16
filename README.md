@@ -1,10 +1,6 @@
 # PAGE IS A WORK IN PROGRESS
 
-<p align="center">
-  <img src="./defender-hat.jpg" alt="Universal Public Defender yellow hat" width="128" />
-</p>
-
-# Defender's Brain
+# <img src="./defender-hat.jpg" alt="Universal Public Defender yellow hat" width="40" align="right" /> Defender's Brain
 
 *A public mind needs a world.*
 
