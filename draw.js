@@ -438,26 +438,6 @@ function construction(progress, elapsed = 0) {
   return { pts, qTotal, qz: square.q, qx, qClose, closeU, edgeU, faceU, cubeU, carU, car, step };
 }
 
-function project(p, localYaw, localPitch) {
-  const cy = Math.cos(localYaw), sy = Math.sin(localYaw);
-  const cp = Math.cos(localPitch), sp = Math.sin(localPitch);
-  const x1 = p[0] * cy + p[2] * sy;
-  const z1 = -p[0] * sy + p[2] * cy;
-  const y2 = p[1] * cp - z1 * sp;
-  const z2 = p[1] * sp + z1 * cp;
-  const depth = (z2 + 1.25) * 0.44;
-  return [CX + x1 * R, CY - y2 * R, depth];
-}
-
-function colorFor(c, alpha, depth) {
-  let rgb;
-  if (c < 0.42) rgb = [120, 120, 120];
-  else if (c < 0.58) rgb = [218, 142, 166];
-  else rgb = [36, 146, 200];
-  const light = 0.72 + depth * 0.28;
-  return `rgba(${Math.round(rgb[0]*light)},${Math.round(rgb[1]*light)},${Math.round(rgb[2]*light)},${alpha.toFixed(2)})`;
-}
-
 function text(c, progress) {
   const step =
     c.closeU < 1 ? {
@@ -640,20 +620,13 @@ function draw() {
   const t = now / 1000;
   const localYaw = auto ? yaw + t * 0.08 : yaw;
   const localPitch = auto ? pitch + Math.sin(t * 0.18) * 0.05 : pitch;
-  ctx.clearRect(0, 0, W, H);
-
-  const projected = c.pts.map(p => {
-    const out = project(p, localYaw, localPitch);
-    return { x: out[0], y: out[1], d: out[2], c: p[3] ?? 0.6 };
-  }).sort((a, b) => a.d - b.d);
-
-  for (const p of projected) {
-    const alpha = Math.max(0.18, Math.min(0.88, p.d));
-    ctx.fillStyle = colorFor(p.c, alpha, p.d);
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, 1.2 + p.d * 1.3, 0, Math.PI * 2);
-    ctx.fill();
-  }
+  window.ClosureParticleRenderer.render(
+    ctx,
+    c.pts,
+    { W, H, CX, CY, R },
+    { yaw: localYaw, pitch: localPitch, time: t },
+    { links: true }
+  );
 }
 
 canvas.addEventListener("pointerdown", e => {

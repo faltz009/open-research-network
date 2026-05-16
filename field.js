@@ -945,24 +945,6 @@ function rebuildInPlace() {
 
 // ── Rendering ─────────────────────────────────────────────
 
-function project(p, ly, lp) {
-  const cy = Math.cos(ly), sy = Math.sin(ly);
-  const cp = Math.cos(lp), sp = Math.sin(lp);
-  const x1 = p[0]*cy + p[2]*sy, z1 = -p[0]*sy + p[2]*cy;
-  const y2 = p[1]*cp - z1*sp,   z2 = p[1]*sp + z1*cp;
-  const d  = (z2 + 1.25) * 0.44;
-  return [CX + x1*R, CY - y2*R, d];
-}
-
-function colorFor(c, alpha, depth) {
-  let rgb;
-  if      (c < 0.42) rgb = [120,120,120];
-  else if (c < 0.58) rgb = [218,142,166];
-  else               rgb = [36,146,200];
-  const light = 0.72 + depth * 0.28;
-  return `rgba(${Math.round(rgb[0]*light)},${Math.round(rgb[1]*light)},${Math.round(rgb[2]*light)},${alpha.toFixed(2)})`;
-}
-
 function draw() {
   requestAnimationFrame(draw);
   const now = performance.now() / 1000;
@@ -1006,20 +988,13 @@ function draw() {
   const ly = autoRotate ? yaw + now * 0.08 : yaw;
   const lp = autoRotate ? pitch + Math.sin(now * 0.18) * 0.05 : pitch;
 
-  ctx.clearRect(0, 0, W, H);
-
-  const projected = pts.map(p => {
-    const [px,py,d] = project(p, ly, lp);
-    return { x:px, y:py, d, c:p[3]??0.6 };
-  }).sort((a,b) => a.d - b.d);
-
-  for (const p of projected) {
-    const alpha = Math.max(0.18, Math.min(0.88, p.d));
-    ctx.fillStyle = colorFor(p.c, alpha, p.d);
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, 1.2 + p.d * 1.3, 0, Math.PI*2);
-    ctx.fill();
-  }
+  window.ClosureParticleRenderer.render(
+    ctx,
+    pts,
+    { W, H, CX, CY, R },
+    { yaw: ly, pitch: lp, time: now },
+    { links: true }
+  );
 }
 
 // ── Controls ──────────────────────────────────────────────
