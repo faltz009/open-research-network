@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Research Network - Defender Patrol</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { background: #fff; }
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 3rem 1.2rem;
+    }
+    .hero h1 { font-size: 1.8rem; margin: 0 0 0.7rem; }
+    .hero p {
+      max-width: 720px;
+      margin: 0 0 0.65rem;
+      color: #444;
+      font-size: 0.88rem;
+      line-height: 1.68;
+    }
+    .wrap {
+      display: grid;
+      grid-template-columns: minmax(320px, 620px) minmax(280px, 420px);
+      gap: 2rem;
+      align-items: start;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 3rem 2.2rem;
+    }
+    #grid {
+      width: 620px;
+      height: 620px;
+      max-width: 100%;
+      display: block;
+      background: #0b0d16;
+      border-radius: 4px;
+      box-shadow: 0 18px 45px rgba(10, 18, 28, 0.18), inset 0 0 0 1px rgba(255,255,255,0.06);
+      cursor: crosshair;
+    }
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .btn {
+      padding: 6px 14px;
+      border: 1px solid #cfcfcf;
+      background: white;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.84rem;
+      font-family: inherit;
+    }
+    .btn:hover {
+      color: white;
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    .meters {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0.9rem auto 0;
+      max-width: 560px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.78rem;
+      color: #222;
+    }
+    .bar-wrap {
+      display: grid;
+      grid-template-columns: 72px 1fr 42px;
+      gap: 9px;
+      align-items: center;
+      padding: 7px 8px;
+      background: #f6f6f7;
+      border: 1px solid #e3e3e7;
+      border-radius: 4px;
+    }
+    .bar-label {
+      text-align: right;
+      font-size: 0.72rem;
+      color: #333;
+    }
+    .bar-bg {
+      height: 18px;
+      background: #e4e4ea;
+      border: 1px solid #d0d0d8;
+      overflow: hidden;
+    }
+    .bar-fill { height: 100%; transition: width 0.1s; }
+    .bar-val {
+      font-size: 0.74rem;
+      text-align: right;
+      color: #111;
+    }
+    .panel h1 { font-size: 1.35rem; margin: 0 0 0.55rem; }
+    .panel p { color: #444; font-size: 0.9rem; line-height: 1.55; }
+    .readout,
+    .eventlog {
+      margin-top: 0.9rem;
+      padding: 0.85rem;
+      background: #f4f4f4;
+      border-left: 2px solid #1a1a1a;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.74rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      color: #222;
+    }
+    .eventlog {
+      height: 140px;
+      overflow-y: auto;
+      color: #666;
+    }
+    .trust-title {
+      margin: 1rem 0 0.35rem;
+      color: #999;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    #trust-list {
+      display: grid;
+      gap: 4px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.68rem;
+    }
+    .legend {
+      display: grid;
+      grid-template-columns: 14px 1fr 14px 1fr;
+      gap: 5px 8px;
+      align-items: center;
+      margin-top: 0.9rem;
+      color: #666;
+      font-size: 0.78rem;
+    }
+    .legend .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    @media (max-width: 860px) {
+      .hero { padding: 1.5rem 1rem 1rem; }
+      .wrap { grid-template-columns: 1fr; padding: 0 1rem 1.5rem; }
+      #grid { width: 100%; height: 360px; }
+      .meters { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav-root"></div>
+<script src="nav.js"></script>
+
+<div class="hero">
+  <h1>Egregore Wars</h1>
+  <p>Defender moves through a social field and tries to keep three values alive: truth, good, and beauty. Each group changes one part of that state, and Defender learns what each group does by contact.</p>
+  <p>Over time the network should get healthier: trusted groups grow into larger resource poles, harmful groups stay smaller because Defender patrols and prunes them, and Normies remain scattered background noise.</p>
+</div>
+
+<main class="wrap">
+  <section>
+    <canvas id="grid" width="720" height="720"></canvas>
+    <div class="meters">
+      <div class="bar-wrap">
+        <span class="bar-label">truth</span>
+        <div class="bar-bg"><div class="bar-fill" id="tbar" style="width:0%;background:#4ae;"></div></div>
+        <span class="bar-val" id="tval">0.00</span>
+      </div>
+      <div class="bar-wrap">
+        <span class="bar-label">good</span>
+        <div class="bar-bg"><div class="bar-fill" id="gbar" style="width:0%;background:#4c8;"></div></div>
+        <span class="bar-val" id="gval">0.00</span>
+      </div>
+      <div class="bar-wrap">
+        <span class="bar-label">beauty</span>
+        <div class="bar-bg"><div class="bar-fill" id="bbar" style="width:0%;background:#a4d;"></div></div>
+        <span class="bar-val" id="bval">0.00</span>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" onclick="reset()">Reset</button>
+      <button class="btn" onclick="togglePause()" id="pauseBtn">Pause</button>
+      <button class="btn" onclick="toggleSpeed()">Speed: <span id="spd">Normal</span></button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h1>Social Field</h1>
+    <p>Defender runs one loop: restore the lowest value, then patrol harmful clusters. The current state is stored as one quaternion.</p>
+
+    <div id="state-readout" class="readout">loading...</div>
+
+    <div class="trust-title">Group Trust</div>
+    <div id="trust-list"></div>
+
+
+    <div id="eventlog" class="eventlog"></div>
+
+    <span id="tick" hidden>0</span>
+    <span id="pos" hidden>(0,0)</span>
+    <span id="mass" hidden>1 cells</span>
+    <span id="inFields" hidden>0</span>
+    <span id="bel" hidden>[1.00, 0.00, 0.00, 0.00]</span>
+  </section>
+</main>
+
+<script src="defender-loop.js"></script>
+</body>
+</html>

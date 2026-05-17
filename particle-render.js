@@ -112,8 +112,8 @@ function render(ctx, pts, viewport, camera, options = {}) {
     const depth = clamp(p.d, 0, 1);
     const rgb = palette(p.c, depth);
     const size = (1.4 + depth * 2.2) * scale;
-    const glow = size * 3.0;
-    const a = 0.055 + depth * 0.095;
+    const glow = size * 2.1;
+    const a = 0.024 + depth * 0.046;
     ctx.fillStyle = rgba(rgb, a);
     ctx.beginPath();
     ctx.arc(p.x, p.y, glow, 0, Math.PI * 2);
@@ -131,7 +131,7 @@ function render(ctx, pts, viewport, camera, options = {}) {
     ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.fillStyle = rgba([255, 255, 255], 0.06 + depth * 0.10);
+    ctx.fillStyle = rgba([255, 255, 255], 0.035 + depth * 0.060);
     ctx.beginPath();
     ctx.arc(p.x - size * 0.22, p.y - size * 0.22, Math.max(0.32, size * 0.22), 0, Math.PI * 2);
     ctx.fill();

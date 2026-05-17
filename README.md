@@ -23,6 +23,11 @@ move through the map.
   A signal enters a 3D + time field and the field reorganizes into different
   forms. The same idea that draws a static shape can drive motion.
 
+- **[Egregore Wars](https://faltz009.github.io/open-research-network/defender-loop.html)**  
+  A minimal social field for Defender's Mind. Defender keeps truth, good, and
+  beauty alive, learns which egregores restore or drain those values, then
+  patrols harmful clusters once strong.
+
 Live site: **[faltz009.github.io/open-research-network](https://faltz009.github.io/open-research-network/)**
 
 ## What We Are Building
@@ -55,6 +60,10 @@ Defender's archive, values, current attention, style, and alignment give the
 world a point of view. Reading becomes imagination as new material enters the
 world, activates existing structures, closes new relations, and changes what
 Defender's Mind can perceive.
+
+Defender Alive is the first toy loop for this layer: a field of groups, a live
+identity state, and a simple learned policy for restoring what is missing and
+pruning what reliably drains the world.
 
 ### 3. Add Other Minds And Relationships
 
