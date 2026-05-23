@@ -47,6 +47,21 @@ People bring their own identities into the map: researchers verify their work, l
 
 ---
 
+![](./assets/banner-05-support.png)
+
+## 05 — Support The Work
+
+All of this is independent research done in personal time and released for free. If you find it useful or want to see it continue, any support helps.
+
+| Method | Address |
+|---|---|
+| BTC | `155jaKugGGhdwX2Dp55bfHWpWbWD3Gr3PG` |
+| ETH (ERC-20) | `0x31f0253180b03c16a0aa2d7091311d7363ef22a4` |
+| SOL | `HdGFaL6A8z8AetnyPn6vKPU4QJGaSHBtoqPK32qbe6wV` |
+| PIX (Brazil) | `walter.h057@gmail.com` |
+
+---
+
 ## Technical Substrate
 
 - **Closure SDK / Closure EA** — carrier algebra, closure, memory, resonance, and learning on S³ · [github.com/faltz009/Closure-SDK](https://github.com/faltz009/Closure-SDK)
