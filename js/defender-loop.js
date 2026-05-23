@@ -522,7 +522,7 @@ let HAT_SPRITE = null;
 (function loadHat() {
   const img = new Image();
   img.onload = () => { HAT_SPRITE = img; };
-  img.src = "defender-hat.jpg";
+  img.src = "assets/defender-hat.jpg";
 })();
 
 function drawHat(x, y) {

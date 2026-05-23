@@ -10,6 +10,9 @@
       <a href="index.html">Projects</a>
       <a href="field.html">Field</a>
       <a href="draw.html">Draw</a>
+      <a href="unfolding.html">Unfolding</a>
+      <a href="closure-fractal.html">Fractal</a>
+      <a href="closure-world.html">World</a>
       <a href="defender-loop.html">Defender</a>
       <a href="about.html">About</a>
     </div>
@@ -21,6 +24,12 @@
     <a href="field.html">Field</a>
     <span class="nav-dot">·</span>
     <a href="draw.html">Draw</a>
+    <span class="nav-dot">·</span>
+    <a href="unfolding.html">Unfolding</a>
+    <span class="nav-dot">·</span>
+    <a href="closure-fractal.html">Fractal</a>
+    <span class="nav-dot">·</span>
+    <a href="closure-world.html">World</a>
     <span class="nav-dot">·</span>
     <a href="defender-loop.html">Defender</a>
     <span class="nav-dot">·</span>

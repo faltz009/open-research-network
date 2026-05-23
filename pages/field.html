@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open Research Network — Field</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
   <style>
     body { background: #fff; }
     .hero {
@@ -102,12 +102,13 @@
 </head>
 <body>
 <div id="site-nav-root"></div>
-<script src="nav.js"></script>
+<script src="../js/nav.js"></script>
 
 <div class="hero">
   <h1>Shape Field</h1>
-  <p>This page shows a field changing shape when it receives a compact signal. The signal is not a picture of every dot; it is the rule for making the shape, so the same rule can be drawn with more or less detail by moving the resolution sliders.</p>
-  <p>The useful examples are biological: a cell, a neuron, a folding sheet of tissue. Static signals unfold into 3D space; moving signals add a time axis, so the same form becomes a living sequence of states. That is why this matters as a control language for shapes: send the rule into a system that can read it, and the system knows what form to take.</p>
+  <p>This page shows a field taking shape from a compact signal: the signal describes how the form is generated, while the dots are samples of that rule. Moving the resolution sliders changes how much detail is drawn.</p>
+  <p>The first forms are simple closed structures, then the same mechanism is used for biological shapes: a cell, a neuron, and a folding sheet of tissue. Static signals unfold into 3D space; moving signals add a time axis, so one form becomes a coherent sequence of states.</p>
+  <p>The point is a shape language: describe the form once, then let any compatible system unfold it at the scale, detail, and motion it needs.</p>
 </div>
 
 <main class="wrap">
@@ -139,7 +140,7 @@
   </section>
 </main>
 
-<script src="particle-render.js"></script>
-<script src="field.js"></script>
+<script src="../js/particle-render.js"></script>
+<script src="../js/field.js"></script>
 </body>
 </html>

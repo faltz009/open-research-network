@@ -164,6 +164,6 @@
     buildParticles();
     render();
   };
-  img.src = "gradient-circle.png";
+  img.src = "assets/gradient-circle.png";
 
 })();
