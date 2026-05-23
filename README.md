@@ -1,115 +1,62 @@
-# PAGE IS A WORK IN PROGRESS
+![](./assets/banner-01-world.png)
 
-# <img src="./defender-hat.jpg" alt="Universal Public Defender yellow hat" width="40" align="right" /> Defender's Brain
+# Open Research Network
 
-*A public mind needs a world.*
+A modern LLM in a datacenter consumes between 10,000 and 20,000 watts to answer a simple question. Every other human — including Einstein and Von Neumann — runs on 20 watts, and if you ask them something, they generate a precise model of the world at whatever resolution the question requires.
 
-Defender's Brain is the first public mind-world for Universal Public Defender, a
-navigable landscape of concepts, sources, arguments, researchers, and
-relationships shaped around a real public identity.
+The difference isn't raw computation. It's grounding. Agents hallucinate because they have no stable model of reality to verify against. As the internet of agents grows, the problem compounds: without shared geometric representations of reality, agents can't be made efficient, can't communicate reliably, and can't be trusted to reason about the same world.
 
-The Open Research Network is the larger version of that idea: public knowledge
-infrastructure for researchers, built as a shared world where ideas have
-positions and people have neighborhoods, and understanding is learning how to
-move through the map.
+We're building that grounding layer. A brain needs two things: a model of itself and a model of the world. This project builds both, starting from the geometric framework in the [published research](https://github.com/faltz009/whitepapers) and working toward a navigable, shared world that any agent or researcher can locate themselves in.
 
-## Live Demos
+The theory is done. The demos exist. What follows is the build.
 
-- **[Thought Engine](https://faltz009.github.io/open-research-network/draw.html)**  
-  A compact rule unfolds into a shape. The demo shows continuous-to-discrete
-  sampling: the same construction can be drawn with a few points or many points.
+---
 
-- **[Shape Field](https://faltz009.github.io/open-research-network/field.html)**  
-  A signal enters a 3D + time field and the field reorganizes into different
-  forms. The same idea that draws a static shape can drive motion.
+![](./assets/banner-02-teach.png)
 
-- **[Egregore Wars](https://faltz009.github.io/open-research-network/defender-loop.html)**  
-  A minimal social field for Defender's Mind. Defender keeps truth, good, and
-  beauty alive, learns which egregores restore or drain those values, then
-  patrols harmful clusters once strong.
+## 01 — Build The World
 
-Live site: **[faltz009.github.io/open-research-network](https://faltz009.github.io/open-research-network/)**
+Bootstrap the geometric landscape: concepts, sources, arguments, and relationships as structured carriers on S³, so that different vocabularies can point to the same underlying structure and proximity means something real.
 
-## What We Are Building
+**Live demos:**
 
-Defender's Brain begins with Defender's World: a topological map of human
-knowledge shaped by Defender's writing, arguments, current attention, taste, and
-public relationships. Concepts in that world have positions, shapes, neighbors,
-sources, and behavior, so different vocabularies can point toward the same
-structure and researchers can be near each other because their work touches the
-same region.
+- **[Thought Engine](https://faltz009.github.io/open-research-network/draw.html)** — a compact rule unfolds into a visible shape; continuous-to-discrete sampling in the browser
+- **[Shape Field](https://faltz009.github.io/open-research-network/field.html)** — a signal enters a field and the field reorganizes; static shapes and motion from the same operation
+- **[Egregore Wars](https://faltz009.github.io/open-research-network/defender-loop.html)** — a minimal social field where an agent learns which groups restore or drain signal, then acts on that
 
-Defender's Mind is the identity that learns to perceive, read, and act inside
-that world.
+---
 
-## Roadmap
+## 02 — Teach Defender
 
-### 1. Build Defender's World
+Give the world a point of view. Defender's archive, values, attention, and style become the identity layer that turns a geometric landscape into a perspective — a mind that can read new material, locate it in the existing structure, and answer from within the world rather than about it.
 
-Bootstrap the landscape: concepts, sources, arguments, relations, and geometric
-states, forming the world a mind can perceive before it can answer from within
-it.
+Reading becomes imagination. Questions become navigation. Corrections sharpen the model.
 
-The current demos are early public handles for this layer: Thought Engine shows
-how rules become shapes, while Shape Field shows how signals can reorganize a
-field over space and time.
+---
 
-### 2. Give The World An Identity
+![](./assets/banner-03-university.png)
 
-Defender's archive, values, current attention, style, and alignment give the
-world a point of view. Reading becomes imagination as new material enters the
-world, activates existing structures, closes new relations, and changes what
-Defender's Mind can perceive.
+## 03 — Make It His University
 
-Defender Alive is the first toy loop for this layer: a field of groups, a live
-identity state, and a simple learned policy for restoring what is missing and
-pruning what reliably drains the world.
+Researchers, collaborators, critics, and schools of thought become positions in the same landscape. The map shows who works near whom, which debates are connected, and where different fields are touching the same underlying structure without knowing it.
 
-### 3. Add Other Minds And Relationships
+This is the Open Research Institute: public knowledge infrastructure where the frontier is visible because the whole territory is mapped.
 
-Researchers, collaborators, critics, schools of thought, and intellectual
-communities become positions in the same landscape. The map can show who works
-near whom, which debates are connected, and where different fields are touching
-the same underlying structure.
+---
 
-### 4. Teach Through The World
+![](./assets/banner-04-network.png)
 
-Questions become a way to enter the landscape: a question activates a region of
-the world, Defender's Mind follows the shape, and the answer is translated back
-into language with sources, maps, and correction.
+## 04 — Build The Network
 
-Here, asking Defender becomes teaching Defender: questions, corrections,
-and source contributions sharpen the verified world model.
+People bring their own identities into the map. Researchers verify their work, locate themselves in the shared landscape, contribute sources, and build relationships through the human verification layer.
 
-### 5. Open The Network
+Defender's Brain becomes one public mind-world inside the larger Open Research Network — a demonstration that the architecture works before opening it to everyone.
 
-People bring their own identities into the map as researchers verify their work,
-locate themselves in the shared landscape, contribute sources, and build
-relationships through the human verification layer.
-
-Defender's Brain becomes one public mind-world inside the larger Open Research
-Network.
-
-## Open Research Network
-
-The network holds a collective understanding of ideas and the people working on
-them, connecting concepts across disciplines and situating researchers in the
-intellectual neighborhoods their work defines. As knowledge accumulates as
-living structure, the frontier becomes visible.
-
-- A shared, navigable field of concepts where ideas unfold as geometric states.
-- Researchers placed by what they work on, so intellectual neighborhoods become visible.
-- Questions that teach by guiding people through the shape of understanding.
-- A map of who is researching what, and where the frontier is moving.
-- Built openly by the Open Research Institute as public knowledge infrastructure.
-- Designed for the internet of agents, minds, and verified human identity.
+---
 
 ## Technical Substrate
 
-The underlying research lives in the geometric computer stack:
-
-- **Closure SDK / Closure EA** — carrier algebra, closure, memory, resonance, and learning on S³  
-  [github.com/faltz009/Closure-SDK](https://github.com/faltz009/Closure-SDK)
-
-- **Open Research Institute**  
-  [x.com/OpenResearchOrg](https://x.com/OpenResearchOrg)
+- **Closure SDK / Closure EA** — carrier algebra, closure, memory, resonance, and learning on S³ · [github.com/faltz009/Closure-SDK](https://github.com/faltz009/Closure-SDK)
+- **Whitepapers** — the published theory behind the geometric computer · [github.com/faltz009/whitepapers](https://github.com/faltz009/whitepapers)
+- **Open Research Institute** · [x.com/OpenResearchOrg](https://x.com/OpenResearchOrg)
+- **DefenderOfBasic** · [x.com/DefenderOfBasic](https://x.com/DefenderOfBasic)
